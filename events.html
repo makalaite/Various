@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+<body>
+
+<button type="button" class="btn btn-primary" onmousedown="image()" onmouseup="image2()">Down?</button>
+<br/>
+
+<button type="button" class="btn btn-success" onmouseenter="document.getElementById('center').innerHTML=Date()">
+    center?
+</button>
+<br/>
+
+<button type="button" class="btn btn-info" onmouseleave="document.getElementById('leave').innerHTML=Date()">Leave?
+</button>
+<br/>
+
+<button type="button" class="btn btn-warning" onmousemove="document.getElementById('move').innerHTML= Date() ">Move?
+</button>
+<br/>
+
+<input type="text" id="red" onkeydown="keyDown()" onkeyup="keyUp()">
+
+
+<p id="down"></p>
+<p id="center"></p>
+<p id="leave"></p>
+<p id="move"></p>
+
+
+<select id="vegetables" onchange="selection1()">
+    <option value="onion"> svogunas</option>
+    <option value="potato"> bulve</option>
+    <option value="tomato"> pomidoras</option>
+</select>
+<select id="fruits" onchange="selection2()">
+    <option value="blueberry"> melyne</option>
+    <option value="strawberry"> braske</option>
+    <option value="watermelon"> arbuzas</option>
+</select>
+
+<p id="new"></p>
+<p id="new2"></p>
+<p id="text">Lorem ipsum - tai fiktyvus tekstas naudojamas spaudos ir grafinio dizaino pasaulyje jau nuo XVI a. pradžios.
+    =\ Lorem Ipsum tapo standartiniu fiktyviu tekstu, kai nežinomas spaustuvininkas atsitiktine tvarka išdėliojo raides
+    =\ atspaudų prese ir tokiu būdu sukūrė raidžių egzempliorių. Šis tekstas išliko beveik nepasikeitęs ne tik penkis amžius,
+    =\bet ir įžengė i kopiuterinio grafinio dizaino laikus. Jis išpopuliarėjo XX a. šeštajame dešimtmetyje, kai buvo išleisti
+    =\ Letraset lapai su Lorem Ipsum ištraukomis, o vėliau -leidybinė sistema AldusPageMaker, kurioje buvo ir Lorem Ipsum versija.</p>
+<button onclick="numberOfStart()" > start of </button>
+<p id="start" ></p>
+
+<button onclick="slicing()" > slice of </button>
+<p id="slice" ></p>
+
+<button onclick="replacing()" > replace </button>
+<p id="eina" ></p>
+
+<button onclick="replaceImg()" > replace </button>
+<p id="voras" ></p>
+<script>
+
+    function image() {
+        var repImage = '<img src="https://vignette1.wikia.nocookie.net/ticktockcroc/images/a/a8/Alice.jpg/revision/latest?cb=20140118014232">';
+        document.getElementById("down").innerHTML = repImage;
+    }
+    function image2() {
+        var repImage = '<img src="http://images5.fanpop.com/image/polls/985000/985040_1332815239976_full.jpg?v=1332815126">';
+        document.getElementById("down").innerHTML = repImage;
+    }
+
+    function keyDown() {
+        document.getElementById("red").style.backgroundColor = "red";
+    }
+
+    function keyUp() {
+        document.getElementById("red").style.backgroundColor = "green";
+    }
+
+    function selection1() {
+        var x = document.getElementById("vegetables").id;
+        document.getElementById("new").innerHTML = "Pasirinkote: " + x;
+    }
+
+    function selection2() {
+
+        var a = document.getElementById("fruits").id;
+        document.getElementById("new2").innerHTML = "Pasirinkote: " + a;
+
+    }
+document.querySelector('#text').addEventListener('click', count);
+    function count() {
+        var a = document.getElementById("text").innerHTML.valueOf();
+        var e =a.length;
+        for (i = 0; i < e; i++) {
+
+            var b = " "+ i + " => " + a[i]+" ";
+            var t = document.createTextNode(b);
+
+            document.getElementById("text").appendChild(t);
+        }
+    }
+
+//    var y = "object";
+//    var x = new String("object");
+//    var b = new String("something")
+//    console.log(x == b);
+    
+    function numberOfStart() {
+        var str = "hello, world, very nice to meet you";
+        var number = str.indexOf('nice');
+        document.getElementById("start").innerHTML = number;
+    }
+
+    function slicing() {
+        var str = ['hello', 'world', 'very', 'nice', 'to', 'meet', 'you'];
+        var number = str.slice(2, 5);
+        document.getElementById("slice").innerHTML = number;
+    }
+
+    function replacing() {
+        str = "ejo karta ejo voras,";
+        str2 = " Pertras buvo, bet ne storas.";
+        repl = str.replace("voras", "ponas");
+        repl2 = str2.replace("storas", "plonas");
+        document.getElementById("eina").innerHTML = repl + repl2;
+    }
+
+    function replaceImg() {
+        str = "ejo karta ejo voras, gdjfdjahg";
+        img = '<img src = http://allswalls.com/images/tea-alice-in-wonderland-alice-wonderland-party-mad-tea-party-wallpaper-1.jpg >'
+        repl = str.replace("voras", img);
+        document.getElementById("voras").innerHTML = repl;
+    }
+
+    function upperCase() {
+        text = 'Lorem ipsum - tai fiktyvus tekstas naudojamas spaudos ir grafinio dizaino pasaulyje jau nuo XVI a. pradžios. Lorem Ipsum tapo standartiniu fiktyviu tekstu, kai nežinomas spaustuvininkas atsitiktine tvarka išdėliojo raides atspaudų prese ir tokiu būdu sukūrė raidžių egzempliorių. Šis tekstas išliko beveik nepasikeitęs ne tik penkis amžius, bet ir įžengė i kopiuterinio grafinio dizaino laikus. Jis išpopuliarėjo XX a. šeštajame dešimtmetyje, kai buvo išleisti Letraset lapai su Lorem Ipsum ištraukomis, o vėliau -leidybinė sistema AldusPageMaker, kurioje buvo ir Lorem Ipsum versija.';
+        n = text.toUpperCase();
+    }
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+</body>
+</html>
