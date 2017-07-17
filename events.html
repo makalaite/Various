@@ -62,6 +62,9 @@
 
 <button onclick="replaceImg()" > replace </button>
 <p id="voras" ></p>
+
+<button onclick="slicing()" > slice of </button>
+<p id="slice" ></p>
 <script>
 
     function image() {
@@ -132,7 +135,7 @@ document.querySelector('#text').addEventListener('click', count);
 
     function replaceImg() {
         str = "ejo karta ejo voras, gdjfdjahg";
-        img = '<img src = http://allswalls.com/images/tea-alice-in-wonderland-alice-wonderland-party-mad-tea-party-wallpaper-1.jpg >'
+        img = '<img src = http://allswalls.com/images/tea-alice-in-wonderland-alice-wonderland-party-mad-tea-party-wallpaper-1.jpg >';
         repl = str.replace("voras", img);
         document.getElementById("voras").innerHTML = repl;
     }
@@ -140,6 +143,19 @@ document.querySelector('#text').addEventListener('click', count);
     function upperCase() {
         text = 'Lorem ipsum - tai fiktyvus tekstas naudojamas spaudos ir grafinio dizaino pasaulyje jau nuo XVI a. pradžios. Lorem Ipsum tapo standartiniu fiktyviu tekstu, kai nežinomas spaustuvininkas atsitiktine tvarka išdėliojo raides atspaudų prese ir tokiu būdu sukūrė raidžių egzempliorių. Šis tekstas išliko beveik nepasikeitęs ne tik penkis amžius, bet ir įžengė i kopiuterinio grafinio dizaino laikus. Jis išpopuliarėjo XX a. šeštajame dešimtmetyje, kai buvo išleisti Letraset lapai su Lorem Ipsum ištraukomis, o vėliau -leidybinė sistema AldusPageMaker, kurioje buvo ir Lorem Ipsum versija.';
         n = text.toUpperCase();
+    }
+    
+    var    abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+
+    function alphabet() {
+
+        var word = "sadsadsadsadsacdsacsac";
+        var count = word.length;
+        for (i = 0; i < count; i++ ) {
+            a = word.replace(word[i]);
+console.log
+        }
     }
 
 </script>
