@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p id="text">"jsdflksj jfglkjslgjlksdglkfjhsdlghl uglkfslkfdugoiu" </p>
+<button onclick="connectingObjects()">batonas</button>
+<p id="this"></p>
+
+<button onclick="splittingString()">batonas</button>
+<p id="iceCube"></p>
+
+<button onclick="splittingObject()">batonas</button>
+<p id="split"></p>
+
+<button onclick="sumUpDigits('12 aaaaaaaaaaaa 12')">batonas</button>
+<p id="bla"></p>
+
+</body>
+</html>
+
+
+<script>
+
+    function connectingObjects() {
+        var src = "<img src=\"http://wondersofdisney.disneyfansites.com/disfriends/alice/alice/aliceteacup.png\">";
+        var text = document.getElementById("text").innerHTML;
+        var person = {a: src, b: text};
+
+        person = person.a.concat(person.b);
+        console.log(person);
+        document.getElementById("this").innerHTML = person;
+    }
+
+    function splittingString() {
+        var str = "Today was a good day. - Ice Cube";
+        string = str.split(" ");
+        document.getElementById("iceCube").innerHTML = string;
+    }
+
+    function splittingObject() {
+        var ingredients = {spice: 'dill', veggie: 'potato', salat: 'iceberg'};
+        var ing = {key: 'type', value: 'name'};
+        var meal = split(ingredients, ing);
+        meal += ing + meal;
+
+        document.getElementById("split").innerHTML = meal;
+    }
+
+    function sumUpDigits(inputString) {
+
+        var answer = 0;
+
+        for (var i = 0; i < inputString.length; i++) {
+            if (isNaN(inputString[i]) == true) {
+                answer += inputString.charCodeAt(i) - '0'.charCodeAt(0);
+            }
+        }
+
+        return answer;
+
+    }
+
+    function adjacentElementsProduct(array) {
+        var arr = [];
+        for (i = 0; i <= array.length; i++) {
+            arr = array[(array.length)-1] * array[i];
+            //arr = array[i] * array[i + 1];
+            console.log(arr);
+        }
+    }
+    var array = [1,2,3,4,5,6,7,8,9];
+    adjacentElementsProduct(array);
+
+
+
+</script>
